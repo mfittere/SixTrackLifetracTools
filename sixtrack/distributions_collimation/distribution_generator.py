@@ -1,7 +1,5 @@
-from pyoptics import *
 from read_fortbin import *
 import numpy as np
-from beams import *
 from matplotlib.pyplot import *
 
 def _read_dump(fn):
@@ -124,12 +122,14 @@ class MacroParticle():
     part = _read_dump(fn)
     idxs = part['ID']==partid
     x0,xp0,y0,yp0,z0,delta0 = self.co
+    # x-px, y-py
     for p,c in zip('x y'.split(),[(x0,xp0),(y0,yp0)]):
       figure('%s%sp'%(p,p))
       if closed_orbit: plot(part[idxs][p]-c[0],part[idxs]['%sp'%p]-c[1],'.')
       else: plot(part[idxs][p],part[idxs]['%sp'%p],'.')
       xlabel('%s [mm]'%p)
       ylabel('%sp [mrad]'%p)
+    # z-pz
     figure('zzp')
     plot(part[idxs]['z'],part[idxs]['dE/E'],'.')
     xlabel('z [mm]')
@@ -146,6 +146,11 @@ class MacroParticle():
       plot(part[idxs]['n%s'%p],part[idxs]['np%s'%p],'.')
       xlabel(r'$n_{%s} [\sigma]$'%p)
       ylabel(r'$n_{p_%s} [\sigma]$'%p)
+    # x-y
+    figure('axay')
+    plot(np.sqrt(part[idxs]['nx']**2+part[idxs]['npx']**2),np.sqrt(part[idxs]['ny']**2+part[idxs]['npy']**2),'.')
+    xlabel(r'$\sqrt{n_{x}^2+n_{p_x}^2} \ [\sigma]$')
+    ylabel(r'$\sqrt{n_{y}^2+n_{p_y}^2} \ [\sigma]$')
 
 ## Usage:
 #fndist='distr_xy4-6_z-gauss.dat'
