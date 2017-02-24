@@ -1,0 +1,2 @@
+ # ID name  angle[rad]  betax[m]  betay[m] halfgap[m]  Material  Length[m]  sigx[m]  sigy[m] tilt1[rad] tilt2[rad] nsig
+         1 TCP.6L3.B1      0.0000000000E+00    0.1313320265E+03    0.1452363189E+03    0.4467956818E-02 BL     0.10000E+01   0.24822E-03   0.26103E-03   0.00000E+00   0.00000E+00   0.18000E+02

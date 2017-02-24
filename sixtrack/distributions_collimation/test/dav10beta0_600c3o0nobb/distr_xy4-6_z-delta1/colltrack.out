@@ -1,0 +1,64 @@
+
+
+          -------------------------------
+
+          Program      C O L L T R A C K 
+
+             R. Assmann       -    AB/ABP
+              C.Bracco        -    AB/ABP
+            V. Previtali      -    AB/ABP
+            S. Redaelli       -    AB/OP
+       G. Robert-Demolaize    -    BNL
+              A. Rossi        -    AB/ABP
+              T. Weiler       -    IEKP
+
+                  CERN 2001 - 2009
+
+          -------------------------------
+
+
+ INFO>  rnd_seed:    649265632
+  
+ Alignment errors settings (tilt, offset,...)
+  
+ SETTING> c_rmstilt_prim   :    0.0000000000000000     
+ SETTING> c_rmstilt_sec    :    0.0000000000000000     
+ SETTING> c_systilt_prim   :    0.0000000000000000     
+ SETTING> c_systilt_sec    :    0.0000000000000000     
+ SETTING> c_rmsoffset_prim :    0.0000000000000000     
+ SETTING> c_rmsoffset_sec  :    0.0000000000000000     
+ SETTING> c_sysoffset_prim :    0.0000000000000000     
+ SETTING> c_sysoffset_sec  :    0.0000000000000000     
+ SETTING> c_offsettilt seed:            0
+ SETTING> c_rmserror_gap   :    0.0000000000000000     
+ SETTING> do_mingap        :  F
+  
+ INFO>  gap_rms_error: TCP.6L3.B1         0.0000000000000000     
+  
+ Collimator information: 
+  
+ Name:                TCP.6L3.B1 
+ Material:            BL  
+ Length [m]:             1.0000000000000000     
+ Rotation [rad]:         0.0000000000000000     
+ Offset [m]:             0.0000000000000000     
+ Design beta x [m]:      581.29542900000001     
+ Design beta y [m]:      1639.9792900000000     
+ Optics beta x [m]:      131.33202649377969     
+ Optics beta y [m]:      145.23631886234767     
+ -5.86079868896338462E-005  6.68372366066345101E-005  2.48219823227096778E-005
+Collimator number:      1
+ Beam size x [m]:       2.48219823227087345E-004
+ Beam size y [m]:       2.61028997591872941E-004
+ Divergence x [urad]:       -58.607986889633850     
+ Divergence y [urad]:        66.837236606634505     
+ Aperture (nom) [m]:    9.39987543012350997E-003
+ Aperture (cal) [m]:    4.46795681808757200E-003
+ Collimator halfgap [sigma]:     18.000000000000000     
+ RMS error on halfgap [sigma]:     0.0000000000000000     
+  
+ INFO>  Number of impacts             :           64
+ INFO>  Number of impacts at selected :            0
+ INFO>  Number of surviving particles :           64
+ INFO>  Number of absorbed particles  :            0
+

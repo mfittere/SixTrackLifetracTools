@@ -1,0 +1,96 @@
+option, warn,info;
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/HLLHCV1.2/ slhc";
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+
+
+mylhcbeam=1; ! For Beam 1
+!mylhcbeam=4; ! For Beam 4
+
+!is_thin=0; ! For thick optics
+is_thin=1; ! For thin optics
+
+Option, -echo,-warn,-info;
+call,file="slhc/toolkit/macro.madx";
+
+if (mylhcbeam<3){ call,file="db5/lhc_as-built.seq";};
+
+if (mylhcbeam>3){ call,file="db5/lhcb4_as-built.seq";};
+
+
+Option, -echo,-warn,-info;
+
+!!Install HL-LHC
+call,file="slhc/hllhc_sequence.madx";
+
+!Install MBH
+mbh_rm_mcs=0; mbh_rm_mcdo=0; !=1 to remove spools
+mbh_ir2q8=0;mbh_ir2q10=0;  !=1 to install TCL and 11T dipoles
+mbh_ir7q8=1;mbh_ir7q10=1;
+mbh_ir1q8=0;mbh_ir1q9=0;mbh_ir1q10=0;
+mbh_ir5q8=0;mbh_ir5q9=0;mbh_ir5q10=0;
+call,file="db5/toolkit/install_mbh.madx";
+
+if (is_thin==0){ 
+
+call,file="slhc/opt_round.madx";
+
+};
+
+if (is_thin==1){ 
+
+exec, myslice; 
+call,file="slhc/opt_round_thin.madx"; 
+
+};
+
+!---------------------------
+
+ !***Exp. configuration in IR1, IR2, IR5 and IR8***
+on_sep1=1;on_x1=-1;
+on_sep2=1;on_x2=1;on_alice=1;
+on_sep5=1;on_x5=1;
+on_sep8=1;on_x8=1;on_lhcb=-1;
+
+on_disp=1;
+
+!--------------------------
+
+exec,mk_beam(7000);
+
+if (mylhcbeam==1){ exec,check_ip(b1); survey,file="survey_lhcb1.tfs";};
+if (mylhcbeam==4){ exec,check_ip(b2); survey,file="survey_lhcb4.tfs";};
+
+
+
+if (mylhcbeam<3){
+
+
+ seqedit, sequence=lhcb1;
+   flatten;
+   cycle, start=IP1;
+ endedit;
+
+seqedit,sequence=lhcb1;
+ install,element=TCP.F.B1,class=rcollimator,at:=1.0;
+endedit;
+
+
+
+use,sequence=lhcb1;
+ select, flag=twiss, clear;
+ select, flag=twiss, column=KEYWORD,NAME,S,L,X,Y,BETX,BETY,ALFX,ALFY,MUX,MUY,DX,DY,DPX,DPY,PX,PY;
+ twiss,  sequence=lhcb1, file=twiss_hllhc_b1_round.tfs; save;
+
+};
+
+
+if (mylhcbeam>3){
+
+use,sequence=lhcb2;
+ select, flag=twiss, clear;
+ select, flag=twiss, column=KEYWORD,NAME,S,L,X,Y,BETX,BETY,ALFX,ALFY,MUX,MUY,DX,DY,DPX,DPY,PX,PY;
+twiss,  sequence=lhcb2, file=twiss_hllhc_b2_round.tfs; save;
+
+};
+
+if (is_thin==1){ sixtrack, radius=17E-03; };

@@ -1,0 +1,66 @@
+ !*****IR1*****
+hocharge_IR1 :=     0.476190E-01 * ho_charge ;
+long_IR1_1   :=       0.120  * sigz/2 ;
+long_IR1_2   :=       0.241  * sigz/2 ;
+long_IR1_3   :=       0.366  * sigz/2 ;
+long_IR1_4   :=       0.498  * sigz/2 ;
+long_IR1_5   :=       0.638  * sigz/2 ;
+long_IR1_6   :=       0.793  * sigz/2 ;
+long_IR1_7   :=       0.969  * sigz/2 ;
+long_IR1_8   :=       1.183  * sigz/2 ;
+long_IR1_9   :=       1.473  * sigz/2 ;
+long_IR1_10  :=       2.083  * sigz/2 ;
+
+ !*****IR2*****
+hocharge_IR2 :=     0.100000E+01 * ho_charge ;
+
+ !*****IR5*****
+hocharge_IR5 :=     0.476190E-01 * ho_charge ;
+long_IR5_1   :=       0.120  * sigz/2 ;
+long_IR5_2   :=       0.241  * sigz/2 ;
+long_IR5_3   :=       0.366  * sigz/2 ;
+long_IR5_4   :=       0.498  * sigz/2 ;
+long_IR5_5   :=       0.638  * sigz/2 ;
+long_IR5_6   :=       0.793  * sigz/2 ;
+long_IR5_7   :=       0.969  * sigz/2 ;
+long_IR5_8   :=       1.183  * sigz/2 ;
+long_IR5_9   :=       1.473  * sigz/2 ;
+long_IR5_10  :=       2.083  * sigz/2 ;
+
+ !*****IR8*****
+hocharge_IR8 :=     0.200000E+00 * ho_charge ;
+long_IR8_1   :=       0.532  * sigz/2 ;
+long_IR8_2   :=       1.400  * sigz/2 ;
+
+
+ value,hocharge_IR1;
+ value,long_IR1_1  ;
+ value,long_IR1_2  ;
+ value,long_IR1_3  ;
+ value,long_IR1_4  ;
+ value,long_IR1_5  ;
+ value,long_IR1_6  ;
+ value,long_IR1_7  ;
+ value,long_IR1_8  ;
+ value,long_IR1_9  ;
+ value,long_IR1_10 ;
+
+ value,hocharge_IR2;
+
+ value,hocharge_IR5;
+ value,long_IR5_1  ;
+ value,long_IR5_2  ;
+ value,long_IR5_3  ;
+ value,long_IR5_4  ;
+ value,long_IR5_5  ;
+ value,long_IR5_6  ;
+ value,long_IR5_7  ;
+ value,long_IR5_8  ;
+ value,long_IR5_9  ;
+ value,long_IR5_10 ;
+
+ value,hocharge_IR8;
+ value,long_IR8_1  ;
+ value,long_IR8_2  ;
+
+ return;

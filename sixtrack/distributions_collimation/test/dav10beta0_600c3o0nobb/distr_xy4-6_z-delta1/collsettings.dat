@@ -1,0 +1,2 @@
+ # name  slicenumber  halfgap[m]  gap_offset[m] tilt jaw1[rad]  tilt jaw2[rad] length[m] material
+TCP.6L3.B1            0   0.44680E-02   0.00000E+00   0.00000E+00   0.00000E+00   0.10000E+01 BL  

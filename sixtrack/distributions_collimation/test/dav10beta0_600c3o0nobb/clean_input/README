@@ -1,0 +1,44 @@
+distribution: folder with input distribution from lifetrac
+  + conversion scripts to sixtrack
+
+----- Generation of distributions
+
+1) get the normalization matrix
+     cd mysimdir
+     cp clean_input/*
+     cp fort.3_da fort.3
+     sixtrack # run the normal sixtrack version
+   Commment:
+   ---------
+   To generate the distribution use fort.3_da which runs the 
+   the 6D thin optics and returns the normalization matrix
+   (tamatrix) in the fort.90 file and as a check in 
+   NORM_IP1_DUMP_1
+2) convert distribution to normalized coordinates
+     mkdir dist_folder
+     cp clean_input/distribution/*.py dist_folder
+     cp fort.90 dist_folder/fort.90_da
+     # modify distribution name in mk_col_dist.py
+     # fn = 'mydist.dat'
+     python mk_col_dist.py
+     # -> generates two files:
+     # mydist.dat_SI = SI units x [m] x'[m] y[m] y'[m] z[m] dE/E[1]
+     # mydist.dat_Col = collimation block units x [m] x'[m] y[m] y'[m] z[mm] E[MeV]
+   Comment:
+   --------
+   the SixTrack collimation version adds the closed
+   orbit internally, thus the coordinates are
+   explicitly given without the closed orbit
+   in *_Col
+
+----- Tracking with input distribution
+1) copy distributions
+     cp dist_folder/mydist.dat_Col
+2) run sixtrack
+     sixtrack # collimation version
+3) plot phase space, make sure that IP1_DUMP_1 is generated:
+     cp clean_input/distribution/plot_dist.py .
+     cp clean_input/distribution/distribution_generator.py .
+     cp dist_folder/fort.90 . # necessary to get normalization matrix and plot normalized phase space
+     ipython
+     %run plot_dist.py
