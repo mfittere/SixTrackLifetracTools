@@ -12,8 +12,7 @@ if( $ARGV[0] eq "" ){
 }
 open(fpw, ">".$ARGV[0]) || die "Cannot open $ARGV[0] $!\n";
 #
-$r1=0;       # initial radius (sigma)
-$r2=5.7;       # final radius
+$r1=5.7;     # amplitude range [sigma]
 $np=10000;   # number of particles
 $zd="gauss"; # type of longitudinal distribution
              # "gauss" for Gaussian with sigma=1
@@ -28,8 +27,8 @@ printf fpw "Norm\n";
 random_set_seed((1,1));
 @za=random_normal($np,0,1);
 @zp=random_normal($np,0,1);
-@xa=random_uniform($np,$r1,$r2);
-@ya=random_uniform($np,$r1,$r2);
+@xa=random_uniform($np,-$r1,$r1);
+@ya=random_uniform($np,-$r1,$r1);
 
 for($i=1;$i<=$np;$i++){
  switch ( $zd ){
