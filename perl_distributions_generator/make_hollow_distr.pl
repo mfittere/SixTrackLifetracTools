@@ -14,11 +14,11 @@ if( $ARGV[0] eq "" ){
 open(fpw, ">".$ARGV[0]) || die "Cannot open $ARGV[0] $!\n";
 #
 $r1=4;       # initial radius (sigma)
-$r2=6;       # final radius
+$r2=6.7443;  # final radius
 $np=10000;   # number of particles
-$zd="gauss"; # type of longitudinal distribution
+#$zd="gauss"; # type of longitudinal distribution
              # "gauss" for Gaussian with sigma=1
-#$zd="zero";  # "zero" - no length and momentum spread
+$zd="zero";  # "zero" - no length and momentum spread
 #$zd="delta1";# "delta1" - delta function at 1 sigma
 #$zd="delta2";# "delta2" - delta function at 2 sigma
 #$zd="delta3";# "delta3" - ----------------- 3 sigma
